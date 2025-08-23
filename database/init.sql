@@ -11,6 +11,10 @@ CREATE TABLE IF NOT EXISTS public.okrs (
     user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
     objective TEXT NOT NULL,
     key_results JSONB NOT NULL DEFAULT '[]',
+    timeframe VARCHAR(20) DEFAULT '3months',
+    category VARCHAR(50) DEFAULT 'technical',
+    status VARCHAR(20) DEFAULT 'active',
+    progress INTEGER DEFAULT 0,
     created_at TIMESTAMPTZ DEFAULT now(),
     updated_at TIMESTAMPTZ DEFAULT now()
 );
